@@ -29,3 +29,23 @@ function moveSlides(n) {
 
 // Initial call to start the slideshow
 showSlides();
+
+function toggleMenu() {
+	var x = document.getElementById("myTopnav");
+	if (x.className === "topnav") {
+		x.className += " responsive";
+	} else {
+		x.className = "topnav";
+	}
+}
+
+document.addEventListener("DOMContentLoaded", function () {
+	var pathname = window.location.pathname;
+	var navLinks = document.querySelectorAll(".topnav a");
+
+	navLinks.forEach(function (link) {
+		if (link.getAttribute("href") === pathname.split("/").pop()) {
+			link.classList.add("active");
+		}
+	});
+});

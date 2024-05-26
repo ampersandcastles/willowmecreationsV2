@@ -8,35 +8,70 @@ body {
     /* Warm, cozy background color */
 }
 
-header {
-    background-color: #333;
+.header {
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    background-color: #888;
+    /* Slightly lighter background color */
     color: #fff;
     padding: 20px 0;
 }
 
 .container {
     width: 90%;
-    max-width: 1200px;
+    max-width: 1600px;
+    /* Increase max-width to allow more items in a line */
     margin: 0 auto;
+}
+
+.logo {
+    margin-bottom: 10px;
+    /* Add some space between the logo and navigation */
+    display: flex;
+    justify-content: center;
+    /* Center the logo */
 }
 
 .logo img {
     width: 150px;
+    height: auto;
+    margin-bottom: 20px;
+    border: 2px solid #fff;
+    box-shadow: 0 0 10px #9b9b9b;
 }
 
 .topnav {
-    text-align: center;
+    overflow: hidden;
+    background-color: #333;
+    position: relative;
+    display: flex;
+    justify-content: center;
+    /* Center the navigation links on desktop */
+    align-items: center;
 }
 
 .topnav a {
-    color: #fff;
-    margin: 0 15px;
+    display: block;
+    color: #f2f2f2;
+    text-align: center;
+    padding: 14px 16px;
     text-decoration: none;
-    font-weight: 700;
+    font-size: 17px;
 }
 
 .topnav a:hover {
-    color: #FFD700;
+    background-color: #4b4b4b;
+    color: black;
+}
+
+.topnav a.active {
+    background-color: #91c993;
+    color: white;
+}
+
+.topnav a.icon {
+    display: none;
 }
 
 .products {
@@ -52,9 +87,11 @@ header {
 
 .product-grid {
     display: flex;
-    justify-content: center;
-    gap: 20px;
+    justify-content: space-between;
+    /* Spread items out evenly */
     flex-wrap: wrap;
+    gap: 20px;
+    /* Space between items */
 }
 
 .product-card {
@@ -62,12 +99,15 @@ header {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 20px);
+    flex: 1 1 calc(30% - 20px);
+    /* Make each product card flexible */
     margin-bottom: 20px;
+    box-sizing: border-box;
+    /* Ensure padding and borders are included in the width */
 }
 
 .product-card img {
-    width: 100%;
+    width: 80%;
     border-radius: 10px;
     margin-bottom: 15px;
 }
@@ -228,7 +268,7 @@ header {
 
 .product-grid {
     display: flex;
-    justify-content: center;
+    justify-content: space-between;
     gap: 20px;
     flex-wrap: wrap;
 }
@@ -238,8 +278,9 @@ header {
     padding: 20px;
     border-radius: 10px;
     box-shadow: 0 4px 6px rgba(0, 0, 0, 0.1);
-    width: calc(33.333% - 20px);
+    flex: 1 1 calc(30% - 20px);
     margin-bottom: 20px;
+    box-sizing: border-box;
 }
 
 .product-card img {
@@ -280,7 +321,8 @@ header {
     text-align: center;
 }
 
-.news h2, .news h3 {
+.news h2,
+.news h3 {
     font-family: 'Playfair Display', serif;
 }
 
@@ -376,17 +418,6 @@ header {
     }
 }
 
-@media (max-width: 480px) {
-    .product-card {
-        width: calc(100% - 20px);
-    }
-
-    .products p {
-        font-size: 0.9em;
-        max-width: 90%;
-    }
-}
-
 @media (max-width: 768px) {
     .news p {
         font-size: 1em;
@@ -448,6 +479,45 @@ header {
     .about p {
         font-size: 0.9em;
         max-width: 90%;
+    }
+}
+
+@media screen and (max-width: 600px) {
+    .topnav a:not(:first-child) {
+        display: none;
+    }
+
+    .topnav a.icon {
+        float: right;
+        display: block;
+    }
+
+    .topnav.responsive {
+        flex-direction: column;
+        align-items: flex-start;
+        background-color: #333;
+    }
+
+    .topnav.responsive .icon {
+        position: absolute;
+        right: 0;
+        top: 0;
+    }
+
+    .topnav.responsive a {
+        float: none;
+        display: block;
+        text-align: left;
+        width: 100%;
+        color: #f2f2f2;
+    }
+
+    .product-grid {
+        flex-direction: column;
+    }
+
+    .product-card {
+        width: 100%;
     }
 }
 
